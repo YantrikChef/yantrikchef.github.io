@@ -10,11 +10,32 @@
       src: url(https://fonts.gstatic.com/s/quicksand/v31/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkM0o58a-wg.woff2) format('woff2');
       unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
     }
+    .logo-mode {
+      display: none;
+    }
+    @media (prefers-color-scheme: light) {
+      .light-mode {
+        display: inline;
+      }
+      .dark-mode {
+        display: none;
+      }
+    }
+    @media (prefers-color-scheme: dark) {
+      .dark-mode {
+        display: inline;
+      }
+      .light-mode {
+        display: none;
+      }
+    }
   </style>
   
   <tr>
     <td>
-      <iframe src="http://yantrikchef.com/assets/external/image_switcher.html" width="250" height="60" frameborder="0"></iframe>
+      <span class="logo-mode light-mode"><img src="https://gist.github.com/YantrikChef/4c1e6b4fe33644bd35a721153787e223/raw/21d24efca21e67aeb03b5df59c76ec76ad47a921/light-mode-data-uri-gist-id" width="200" alt="YantrikChef"></span>
+      <!-- Dark mode logo -->
+      <span class="logo-mode dark-mode"><img src="https://gist.github.com/YantrikChef/10ffc7abb3df157b143306655fde8eb7/raw/5d8d8f471d78823db1efc2333af07740542241c9/dark-mode-data-uri-gist-id" width="200" alt="YantrikChef"></span>
     </td>
   </tr>
   <tr>
