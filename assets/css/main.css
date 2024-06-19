@@ -17,6 +17,11 @@ body {
     color: #34373b;
     font-size: 1.25rem;
 }
+.content-container {
+    max-width: 1500px; /* Set the maximum width for the content */
+    margin: 0 auto; /* Center the container horizontally */
+    padding: 0 20px; /* Add some padding for better spacing */
+}
 .hero {
     color: #34373b;
     padding: 60px 0;
