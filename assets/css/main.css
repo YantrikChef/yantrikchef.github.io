@@ -8,7 +8,7 @@ body {
     font-family: 'Quicksand-SemiBold';
     line-height: 1.6;
     background-image: url('../images/yc_bg.png');
-    background-size: cover;
+    background-size: contain;
     background-repeat: repeat-y;
     background-position: top;
     min-height: 100vh;
