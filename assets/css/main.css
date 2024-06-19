@@ -8,7 +8,6 @@ body {
     font-family: 'Quicksand-SemiBold';
     line-height: 1.6;
     background-image: url('../images/yc_bg.png');
-    background-size: contain;
     background-repeat: repeat-y;
     background-position: top;
     min-height: 100vh;
@@ -16,6 +15,19 @@ body {
     flex-direction: column;
     color: #34373b;
     font-size: 1.25rem;
+}
+/* For screens smaller than laptops */
+@media (max-width: 1023px) {
+    body {
+        background-size: cover;
+    }
+}
+
+/* For laptop screens and larger */
+@media (min-width: 1024px) {
+    body {
+        background-size: contain;
+    }
 }
 .content-container {
     max-width: 1500px; /* Set the maximum width for the content */
