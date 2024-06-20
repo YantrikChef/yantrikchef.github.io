@@ -17,14 +17,14 @@ body {
     font-size: 1.25rem;
 }
 /* For screens smaller than laptops */
-@media (max-width: 1023px) {
+@media (max-width: 1399px) {
     body {
         background-size: cover;
     }
 }
 
 /* For laptop screens and larger */
-@media (min-width: 1024px) {
+@media (min-width: 1400px) {
     body {
         background-size: contain;
     }
