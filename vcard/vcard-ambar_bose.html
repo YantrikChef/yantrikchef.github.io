@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <title>Ambar Bose</title>
+    <meta property="og:title" content="Ambar Bose">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script>
+        function openMap() {
+            var lat = 22.4900286;
+            var lon = 88.3488975;
+            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            
+            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                window.open("maps://maps.apple.com/?q=" + lat + "," + lon);
+            } else {
+                window.open("https://www.google.com/maps/search/?api=1&query=" + lat + "," + lon);
+            }
+        }
+        function saveContact() {
+            // Contact details
+            var name = "Ambar Bose";
+            var phone = "+918697555142";
+            var email = "ambarbose@gmail.com";
+            var company = "YantrikChef Pvt. Ltd.";
+
+            // Create vCard content
+            var vcard = "BEGIN:VCARD\n" +
+                        "VERSION:3.0\n" +
+                        "FN:" + name + "\n" +
+                        "TEL;TYPE=CELL:" + phone + "\n" +
+                        "EMAIL:" + email + "\n" +
+                        "ORG:" + company + "\n" +
+                        "END:VCARD";
+
+            // Create a Blob with the vCard data
+            var blob = new Blob([vcard], { type: "text/vcard;charset=utf-8" });
+
+            // Create a temporary URL for the Blob
+            var url = URL.createObjectURL(blob);
+
+            // Create a temporary anchor element and trigger download
+            var link = document.createElement('a');
+            link.href = url;
+            link.download = name + ".vcf";
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+
+            // Clean up the temporary URL
+            URL.revokeObjectURL(url);
+        }
+        function shareContact() {
+            // Contact details
+            var name = "Ambar Bose";
+            var phone = "+918697555142";
+            var email = "ambarbose@gmail.com";
+            var company = "YantrikChef Pvt. Ltd.";
+
+            // Create share text
+            var shareText = "Contact Information:\n" +
+                            "Name: " + name + "\n" +
+                            "Phone: " + phone + "\n" +
+                            "Email: " + email + "\n" +
+                            "Company: " + company;
+
+            // Check if Web Share API is supported
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Contact: ' + name,
+                    text: shareText,
+                    url: window.location.href
+                }).then(() => {
+                    console.log('Thanks for sharing!');
+                }).catch(console.error);
+            } else {
+                // Fallback for desktop or unsupported browsers
+                alert("Sharing is not supported on this browser. Please copy and paste the following:\n\n" + shareText);
+            }
+        }
+    </script>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            min-height: 100%;
+            background-color: #fafaf8;
+            font-family: 'Comfortaa', sans-serif;
+            font-optical-sizing: auto;
+            font-style: normal;
+            overflow-x: hidden;
+        }
+        .container {
+            min-height: 100vh;
+            position: relative;
+            padding: 40px 0;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .top-section {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 354px; /* Fixed height: 52vh of 800px */
+            /*background: linear-gradient(45deg, #a8e063, #46b449);*/
+            background: linear-gradient(45deg, #46b449, #1c491e);
+            z-index: 1;
+        }
+        .center-box {
+            width: 80%;
+            max-width: 560px;
+            height: auto;
+            background-color: transparent;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            border-radius: 20px;
+            z-index: 10;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto; /* Ensure vertical scroll when needed */
+        }
+        .profile-section {
+            height: 256px; /* Fixed height: 32% of 800px */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            position: relative;
+        }
+        .profile-image {
+            width: 85px;
+            height: 85px;
+            border-radius: 20%;
+            object-fit: cover;
+            border: none;
+            margin-bottom: 20px;
+            margin-top: 40px;
+        }
+        .name {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        .designation {
+            font-size: 14px;
+            font-weight: 400;
+            margin-bottom: 20px;
+        }
+        .divider {
+            width: 100%;
+            height: 1px;
+            background-color: white;
+            position: absolute;
+            bottom: 0;
+            opacity: 0.5;
+        }
+        a, a:hover, a:active, a:visited {
+            text-decoration: none;
+            color: inherit;
+            background: none;
+        }
+        .action-buttons {
+            display: flex;
+            height: 58px;
+            background-color: transparent;
+        }
+        .action-button {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+        }
+        .action-button:hover {
+            background-color: rgba(0, 0, 0, 0.1);
+            color: white; /* Ensure text stays white on hover */
+        }
+        .action-button:not(:last-child) {
+            border-right: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        .action-button .material-icons {
+            font-size: 24px;
+            margin-bottom: 4px;
+        }
+        /* Ensure all states of the button keep white text */
+        .action-button:hover, .action-button:active, .action-button:visited {
+            color: white;
+        }
+        .detail-section {
+            background-color: #fafaf8;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 1.35;
+            color: #34373b;
+            padding: 20px;
+            display: flex;
+            justify-content: left;
+            align-items: initial;
+            border-bottom: 1px solid #aaa;
+            width: 80%;
+            margin: 0 auto;
+            text-align: left;
+        }
+        .detail-section i {
+            font-size: 30px;
+            color: #aaa;
+        }
+        .detail-section p {
+            margin: 0; 
+            text-align: left;
+            padding-left: 25px; 
+        }
+        .detail-section a{
+            color: #ffb500;
+            text-decoration: none;
+        }
+        .bio-section {
+            background-color: #fafaf8;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 1.35;
+            color: #34373b;
+            padding: 20px;
+            border-bottom: 1px solid #aaa;
+            width: 80%;
+            margin: 0 auto;
+        }
+        .bio-section i {
+            display: none; /* No icon for Bio section */
+        }
+        .social-section {
+            background-color: #fafaf8;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 1.35;
+            color: #34373b;
+            padding: 20px;
+            justify-content: center;
+            align-items: center;
+            width: 80%;
+            margin: 0 auto;
+        }
+        .social-icons{
+            display: flex;
+            justify-content: center; 
+            gap: 50px; 
+            padding: 20px; 
+        }
+        .action-buttons-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+            margin-bottom: 40px;
+            gap: 20px;
+        }
+        .action-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 80%;
+            max-width: 250px;
+            padding: 10px;
+            border: none;
+            border-radius: 10px;
+            font-family: 'Comfortaa', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        .action-btn i {
+            margin-right: 10px;
+        }
+        .download-btn {
+            background-color: #46b449;
+            color: white;
+        }
+        .download-btn:hover {
+            background-color: #45a049;
+        }
+        .share-btn {
+            background-color: white;
+            color: #333;
+        }
+        .share-btn:hover {
+            background-color: #f1f1f1;
+        }
+
+        @media (max-width: 600px) {
+            .center-box {
+                width: 90%;
+            }
+        }
+        @media (max-width: 599px) {
+            .container {
+                padding: 0;
+            }
+            .center-box {
+                width: 100% !important;
+                border-radius: 0;
+                box-shadow: none;
+                overflow-y: auto; /* Ensure vertical scroll when needed */
+            }
+            .top-section {
+                height: 354px; /* Fixed height */
+            }
+            .profile-section {
+                height: auto; /* Adjust to ensure proper height */
+                margin-top: 51px; /* Add some top margin */
+            }
+            .designation {
+                margin-bottom: 38px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="top-section"></div>
+        <div class="center-box">
+            <div class="profile-section">
+                <img src="ambar_bose.jpg" alt="Profile Picture" class="profile-image">
+                <div class="name">Ambar Bose</div>
+                <div class="designation">Director | Co-Founder</div>
+                <div class="divider"></div>
+            </div>
+            <div class="action-buttons">
+                <a href="tel:+918697555142" class="action-button">
+                    <i class="material-icons">call</i>
+                    CALL
+                </a>
+                <a href="mailto:ambarbose@gmail.com" class="action-button">
+                    <i class="material-icons">email</i>
+                    EMAIL
+                </a>
+                <a href="#" onclick="openMap(); return false;" class="action-button">
+                    <i class="material-icons">directions</i>
+                    DIRECTION
+                </a>
+            </div>
+            <div class="bio-section">
+                <p>With a Master's in Computer Science, I have developed extensive expertise and experience in various programming languages and technologies. From founding an IT startup to contributing to cutting-edge research implementing BD and ML, I have consistently driven technological innovation. Now, as co-founder of an innovative food-tech venture, I leverage my diverse skills to lead our technical team towards groundbreaking solutions.</p>
+            </div>
+            <div class="detail-section">
+                <i class="material-icons">phone</i>
+                <p>(+91) 869 755 5142</p>
+            </div>
+            <div class="detail-section">
+                <i class="material-icons">email</i>
+                <p>ambarbose@gmail.com<br>
+                ambar@yantrikchef.com </p>
+            </div>
+            <div class="detail-section">
+                <i class="material-icons">business_center</i>
+                <p><img src="yc_logo_drk.png" alt="YantrikChef" width="200"><br>
+                    A disruptive food-tech startup harnessing advanced robotics and AI to serve up freshly made, tailored gourmet meals on-demand.<br>
+                    <a href="http://www.yantrikchef.com" target="_blank">www.yantrikchef.com</a>
+                </p>
+            </div>
+            <div class="detail-section">
+                <i class="material-icons">location_on</i>
+                <p>51, Jagrata Pally, D. P. Nagar<br>
+                    Belgharia, Kolkata - 700056, W.B. (IN)
+                </p>
+            </div>
+            <div class="social-section">
+                Social Media
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/mr.ambarbose" target="_blank"><img src="facebook.png" alt="Facebook" width="30"></a>
+                    <a href="https://wa.me/+918697555142" target="_blank"><img src="whatsapp.png" alt="Whatsapp" width="30"></a>
+                    <a href="https://www.linkedin.com/in/ambar-bose/" target="_blank"><img src="linkedin.png" alt="Linkedin" width="30"></a>
+                </div>
+            </div>
+            <div class="action-buttons-container">
+                <button class="action-btn download-btn" onclick="saveContact()">
+                    <i class="material-icons">person_add</i>
+                    Save Contact
+                </button>
+                <button class="action-btn share-btn" onclick="shareContact()">
+                    <i class="material-icons">share</i>
+                    Share
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
