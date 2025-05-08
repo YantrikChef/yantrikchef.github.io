@@ -17,14 +17,14 @@ body {
     font-size: 1.25rem;
 }
 /* For screens smaller than laptops */
-@media (max-width: 1399px) {
+@media (max-width: 1366px) {
     body {
         background-size: cover;
     }
 }
 
 /* For laptop screens and larger */
-@media (min-width: 1400px) {
+@media (min-width: 1367px) {
     body {
         background-size: contain;
     }
@@ -358,7 +358,7 @@ html {
   padding-right: 35px;
 }
 .footer .footer-details {
-  margin-top: 50px;
+  margin-top: 20px;
 }
 .footer h4 {
   font-family: 'Chillax-Semibold';
@@ -404,6 +404,19 @@ html {
 
 
 /*career*/
+.inner-page {
+  font-family: 'Quicksand-SemiBold';
+  line-height: 1.6;
+  background-image: url('../images/yc_bg.png');
+  background-size: cover;
+  background-repeat: repeat-y;
+  background-position: top;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: #34373b;
+  font-size: 1.25rem;
+}
 .crintroyc{
   align-items: center;
   background-color: #fafaf8; 
